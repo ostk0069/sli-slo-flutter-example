@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/**.dart
+        options:
+          format: false
