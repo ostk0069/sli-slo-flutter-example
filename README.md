@@ -8,8 +8,8 @@
 This is a sample project to measure SLI/SLO in flutter apps.
 This was talked in [flutterninjas.dev](https://flutterninjas.dev/)
 
-- [SpeakerDeck(en)]() 
-- [SpeakerDeck(日本語)]()
+- [SpeakerDeck(en)](https://speakerdeck.com/ostk0069/slo) 
+- [SpeakerDeck(日本語)](https://speakerdeck.com/ostk0069/slowoyong-ite-flutterapuride-yuzati-yan-nopin-zhi-wojian-shi-suru)
 
 ## TODOs
 
