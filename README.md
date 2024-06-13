@@ -1,4 +1,4 @@
-# SLI/SLO flutter sample
+# SLI/SLO flutter sample for measuring "user experience SLI/SLO"
 
 > [!WARNING]
 > This repository is still work in progress.
