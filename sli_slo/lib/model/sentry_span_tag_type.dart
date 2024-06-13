@@ -4,8 +4,8 @@ import 'package:sentry/sentry.dart';
 
 part 'sentry_span_tag_type.freezed.dart';
 
-/// Transactionに対して分類できる情報を付与するもの
-/// 金額や画像のサイズなどの数値のものはTagではなくMeasurementの利用を推奨する
+/// Anything that gives information that can be classified for a Transaction
+/// For numerical values such as amount or image size, it is recommended to use Measurement instead of Tag.
 @freezed
 class SentrySpanTagType with _$SentrySpanTagType {
   /// Transactionのstatus
@@ -18,7 +18,7 @@ class SentrySpanTagType with _$SentrySpanTagType {
         value: status != null ? status.toString() : 'empty',
       );
 
-  /// 銀行コード
+  /// bank code
   factory SentrySpanTagType.bankCode(
       String code,
       ) =>
@@ -27,7 +27,7 @@ class SentrySpanTagType with _$SentrySpanTagType {
         value: code,
       );
 
-  /// 送信方法
+  /// transaction sending type
   factory SentrySpanTagType.send(
       SentrySpanTagSendType type,
       ) =>
@@ -36,8 +36,8 @@ class SentrySpanTagType with _$SentrySpanTagType {
         value: type.name.toSnakeCase(),
       );
 
-  /// WebViewチャージ時のエラーコード
-  /// 成功の場合は200を送る
+  /// Error code when charging WebView
+  /// Send 200 on success
   factory SentrySpanTagType.webViewErrorCode(
       int type,
       ) =>
@@ -46,8 +46,8 @@ class SentrySpanTagType with _$SentrySpanTagType {
         value: type.toString(),
       );
 
-  /// WebViewチャージ時のエラーメッセージ
-  /// 成功の場合は成功、キャンセルの場合はキャンセルを送る
+  /// Error message on WebView charge
+  /// Send success for success, cancellation for cancellation
   factory SentrySpanTagType.webViewErrorMessage(
       String value,
       ) =>
@@ -71,32 +71,28 @@ class SentrySpanTagType with _$SentrySpanTagType {
 }
 
 enum SentrySpanTagSendType {
-  /// 通常送信
   normal,
 
-  /// 中断送信
+  /// intrruption transaction
   discontinued,
 }
 
 enum SentrySpanTagAuthenticateRouteType {
-  /// ログイン
   login,
-
-  /// 新規登録
   register,
 }
 
 enum SentrySpanTagRegisterAccountReachedPageType {
-  /// メールアドレスの入力
+  /// input email
   inputEmail,
 
-  /// ご本人情報の入力
+  /// input user information for verification
   inputInfo,
 
-  /// 暗証番号の設定
+  /// set password
   inputPassword,
 
-  /// 入力内容の確認
+  /// confirm input
   confirmInput,
   ;
 }

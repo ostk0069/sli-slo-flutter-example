@@ -1,10 +1,9 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:sli_slo/sli_slo_transaction.dart';
 
-final sliSloTransactionHolderProvider = Provider<SLOTransactionHolderImpl>(
-      (ref) => SLOTransactionHolderImpl(
+final sliSloTransactionHolderProvider = Provider<SLISLOTransactionHolderImpl>(
+      (ref) => SLISLOTransactionHolderImpl(
     ref.watch(
       sliSloTransactionProvider(
         const SLISLOTransactionParams(
@@ -24,29 +23,27 @@ final sliSloTransactionHolderProvider = Provider<SLOTransactionHolderImpl>(
   ),
 );
 
-abstract class SLOTransactionHolder {
+abstract class SLISLOTransactionHolder {
   BuiltList<SLISLOTransaction> get transactions;
 
   BuiltList<SLISLOTransaction> get runningSLOTransactions =>
       transactions.where((transaction) => transaction.isRunning).toBuiltList();
 }
 
-/// 計測するSLOをまとめて定義するHolderClass
-/// 別々のインスタンスにすることで同時に複数のSLOを計測することも視野に入れた設計にしている
-class SLOTransactionHolderImpl extends SLOTransactionHolder {
-  SLOTransactionHolderImpl(
+/// A HolderClass that collectively defines the SLOs to be measured
+/// Designed to be separate instances so that multiple SLOs can be measured at the same time
+class SLISLOTransactionHolderImpl extends SLISLOTransactionHolder {
+  SLISLOTransactionHolderImpl(
       this.playgroundTest1,
       this.playgroundTest2,
       );
 
-  @visibleForTesting
   final SLISLOTransaction playgroundTest1;
 
-  @visibleForTesting
   final SLISLOTransaction playgroundTest2;
 
-  /// 計測中のSLOTransactionを取得する
-  /// NOTE: 新規の計測対象を作成した場合はここに追加する
+  /// Get the SLOTransaction being measured
+  /// NOTE: If you create a new measurement target, add it here.
   @override
   BuiltList<SLISLOTransaction> get transactions => [
     playgroundTest1,

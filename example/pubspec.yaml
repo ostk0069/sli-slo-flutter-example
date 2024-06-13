@@ -12,6 +12,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   sli_slo:
     path: ../sli_slo
+  hooks_riverpod: 2.5.1
+  sentry_flutter: 8.2.0
 
 dev_dependencies:
   flutter_test:

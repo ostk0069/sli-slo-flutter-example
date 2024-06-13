@@ -5,7 +5,7 @@ part 'sentry_span_measurement_type.freezed.dart';
 
 @freezed
 class SentrySpanMeasurementType with _$SentrySpanMeasurementType {
-  /// チャージ時のチャージ金額
+  /// Charge amount at time of charge
   factory SentrySpanMeasurementType.chargeAmount(num value) =>
       SentrySpanMeasurementType._create(
         name: 'charge_amount',
@@ -13,7 +13,7 @@ class SentrySpanMeasurementType with _$SentrySpanMeasurementType {
         unit: SentryMeasurementUnit.none,
       );
 
-  /// 投票時の投票金額
+  /// Vote amount at the time of voting
   factory SentrySpanMeasurementType.bettingAmount(num value) =>
       SentrySpanMeasurementType._create(
         name: 'betting_amount',
